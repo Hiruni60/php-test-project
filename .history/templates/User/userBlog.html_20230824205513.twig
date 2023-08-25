@@ -1,0 +1,12 @@
+
+{% block body %}
+
+<h1>My Blogs</h1>
+  <ul>
+        {% for post in blogPosts %}
+            <li>
+                <a href="{{ path('blog_view', { 'id': post.id }) }}">{{ post.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

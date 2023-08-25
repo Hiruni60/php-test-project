@@ -1,0 +1,34 @@
+# controllers:
+#     resource:
+#         path: ../src/Controller/
+#         namespace: App\Controller
+#     type: attribute
+
+# blog_list:
+#     path: /blogs
+#     # the controller value has the format 'controller_class::method_name'
+#     controller: App\Controller\BlogController::list
+
+blog_submit:
+    path: /blogs/submit
+    controller: App\Controller\BlogController::createAction
+blog_list:
+    path: /blog
+    controller: App\Controller\BlogController::listAction
+
+blog_view:
+    path: /blog/{id}
+    controller: App\Controller\BlogController::viewAction
+blog_edit:
+    path: /blog/{id}/edit
+    controller: App\Controller\BlogController::editAction
+blog_update:
+    path: /blog/{id}/update
+    controller: App\Controller\BlogController::updateAction
+blog_delete:
+    path: /blog/{id}/delete
+    controller: App\Controller\BlogController::deleteAction
+    
+comment_create:
+    path: /blog/addComment
+    controller:

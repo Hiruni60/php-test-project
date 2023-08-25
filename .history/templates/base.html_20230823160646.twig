@@ -1,0 +1,62 @@
+{# <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %} 
+        <img src="{{ asset('images/images.jpg') }}" alt="Symfony!"/>
+        
+         {% endblock %}
+    </body>
+</html> #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Blog{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    {# Additional CSS or script includes can be placed here #}
+</head>
+<body>
+    <header>
+        <h1><a href="{{ path('blog_list') }}">My Blog</a></h1>
+
+           <div class="btn-group btn-group-justified" data-toggle="buttons">
+                <label class="btn btn-lg btn-default">
+                <input type="radio" name="role" value="admin" onclick="{{path('adminDashboard')}}">Admin
+                </label>
+                <label class="btn btn-lg btn-default">
+                <input type="radio" name="role" value="user"onclick="{{path('app_register')}}">NO
+                </label>
+            </div>
+
+        <nav>
+            <ul>
+              <li><a href="{{ path('app_login') }}">Login</a></li>
+                <li><a href="{{ path('app_logout') }}">Logout</a></li>
+                  <li><a href="{{ path('app_register') }}">Register</a></li>
+           
+
+                <li><a href="{{ path('blog_list') }}">Home</a></li>
+                <li><a href="{{ path('blog_create') }}">Create Post</a></li>
+            </ul>
+        </nav>
+    </header>
+<main>
+        {% block body %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; {{ "now"|date("Y") }} My Blog</p>
+    </footer>
+</body>
+</html>

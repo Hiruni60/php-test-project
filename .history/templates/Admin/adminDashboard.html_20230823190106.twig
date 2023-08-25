@@ -1,0 +1,4 @@
+
+{% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('blog_lis') }}">Post</a>
+{% endif %}

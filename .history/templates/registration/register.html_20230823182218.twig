@@ -1,0 +1,40 @@
+{# {% extends 'base.html.twig' %} #}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {# {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %} #}
+
+    <h1>Register</h1>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        <div class="btn-group btn-group-justified" data-toggle="buttons">
+                <label class="btn btn-lg btn-default">
+                <input type="radio" name="role" value="admin" >Admin
+                </label>
+                <label class="btn btn-lg btn-default">
+                <input type="radio" name="role" value="user">User
+                </label>
+        </div>
+        {# <select name="{{ form_row(registrationForm.role) }}" class="form-control">
+        <option value="Admin">{{form_row(registrationForm.role) }}</option>
+        <select name="{{ form_row(registrationForm.role) }}" class="form-control">
+        <option value="User">{{ form_row(registrationForm.role) }}</option> #}
+        {# <option {% if choice is selectedchoice(value) %}selected="selected"{% endif %}> #}
+        {{ form_row(registrationForm.agreeTerms) }}
+        
+
+   
+</select>
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}

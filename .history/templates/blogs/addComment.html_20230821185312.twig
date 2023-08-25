@@ -1,0 +1,56 @@
+{# {% extends 'base.html.twig' %} #}
+
+{% block body %}
+
+ <h1>Create New Comment in this Blog Post</h1>
+    {# <h1>{{ blogPost.title }}</h1>
+        <p>{{ blogPost.content }}</p> #}
+
+     {# <ul>
+        {% for post in commentPost %}
+            <li>
+                <a href="{{ path('comment_view', { 'id': post.id }) }}">{{ post.cmtDes}}</a>
+            </li>
+        {% endfor %}
+    </ul> #}
+    
+    <form action="{{ path('comment_create'),{ 'id': blogPost.id } }}" method="POST">
+    
+     <input type="text" id="blogId" name="blogId">
+
+        <label for="cmtName">Your Name:</label>
+        <input type="text" id="cmtName" name="cmtName" required>
+        
+        <label for="cmtDes">Add Your Comment:</label>
+        <textarea id="cmtDes" name="cmtDes" required></textarea>
+        
+        <button type="submit">Add Comment</button>
+    </form>
+    
+    <a href="{{ path('comment_list') }}">Back to Blog List</a>
+
+
+
+    {# <h1>{{ commentPost.cmtName }}</h1>
+    <p>{{ commentPost.cmtDes }}</p>
+     #}
+    {# <a href="{{ path('comment_edit', { 'id': commentPost.id }) }}">Edit</a>
+    <a href="{{ path('comment_delete', { 'id': commentPost.id }) }}" onclick="return confirm('Are you sure you want to delete this post?')">Delete</a>
+    <a href="{{ path('comment_list') }}">Back to Blog List</a> #}
+
+
+    
+    {# <h1>Blog Posts</h1>
+    
+    <ul>
+        {% for post in blogPosts %}
+            <li>
+                <a href="{{ path('comment_view', { 'id': post.id }) }}">{{ post.cmtDes }}</a>
+            </li>
+        {% endfor %}
+    </ul> #}
+    
+    {# <a href="{{ path('comment_create') }}">Create New Blog Post</a> #}
+
+{% endblock %}
+

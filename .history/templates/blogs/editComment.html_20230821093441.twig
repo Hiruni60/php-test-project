@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}comment
+    <h1>Edit Blog Post</h1>
+    
+    <form action="{{ path('comment_update', { 'id': commentPost.id }) }}" method="POST">
+        <label for="cmtName">Y:</label>
+        <input type="text" id="cmtName" name="cmtName" value="{{ commentPost.cmtName }}" required>
+        
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" required>{{ commentPost.content }}</textarea>
+        
+        <button type="submit">Update Blog Post</button>
+
+    </form>
+    
+    <a href="{{ path('comment_view', { 'id': commentPost.id }) }}">Cancel</a>
+{% endblock %}
